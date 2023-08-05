@@ -13,29 +13,17 @@ public class GroupCreationTests {
         wb = new FirefoxDriver();
         wb.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wb.get("http://localhost/addressbook/");
-        wb.findElement(By.name("user")).clear();
-        wb.findElement(By.name("user")).sendKeys("admin");
-        wb.findElement(By.name("pass")).clear();
-        wb.findElement(By.name("pass")).sendKeys("secret");
-        wb.findElement(By.xpath("//input[@value='Login']")).click();
+        login("admin", "secret");
     }
 
     @Test
     public void testGroupCreation() throws Exception {
-        wb.findElement(By.linkText("groups")).click();
-        wb.findElement(By.name("new")).click();
-        wb.findElement(By.name("group_name")).click();
-        wb.findElement(By.name("group_name")).clear();
-        wb.findElement(By.name("group_name")).sendKeys("test4");
-        wb.findElement(By.name("group_header")).click();
-        wb.findElement(By.name("group_header")).clear();
-        wb.findElement(By.name("group_header")).sendKeys("test5");
-        wb.findElement(By.name("group_footer")).click();
-        wb.findElement(By.name("group_footer")).clear();
-        wb.findElement(By.name("group_footer")).sendKeys("test6");
-        wb.findElement(By.name("submit")).click();
-        wb.findElement(By.linkText("groups")).click();
-        wb.findElement(By.linkText("Logout")).click();
+        gotoGroupPage();
+        initGroupCreation();
+        fillGroupForm(new GroupData("test4", "test5", "test6"));
+        submitGroupCreation();
+        gotoGroupPage();
+        logout();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -43,22 +31,39 @@ public class GroupCreationTests {
         wb.quit();
     }
 
-    private boolean isElementPresent(By by) {
-        try {
-            wb.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    private void login(String username, String password) {
+        wb.findElement(By.name("user")).clear();
+        wb.findElement(By.name("user")).sendKeys(username);
+        wb.findElement(By.name("pass")).clear();
+        wb.findElement(By.name("pass")).sendKeys(password);
+        wb.findElement(By.xpath("//input[@value='Login']")).click();
+    }
+    private void logout() {
+        wb.findElement(By.linkText("Logout")).click();
     }
 
-    private boolean isAlertPresent() {
-        try {
-            wb.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
+    private void submitGroupCreation() {
+        wb.findElement(By.name("submit")).click();
+    }
+
+    private void fillGroupForm(GroupData groupData) {
+        wb.findElement(By.name("group_name")).click();
+        wb.findElement(By.name("group_name")).clear();
+        wb.findElement(By.name("group_name")).sendKeys(groupData.getName());
+        wb.findElement(By.name("group_header")).click();
+        wb.findElement(By.name("group_header")).clear();
+        wb.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
+        wb.findElement(By.name("group_footer")).click();
+        wb.findElement(By.name("group_footer")).clear();
+        wb.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+    }
+
+    private void initGroupCreation() {
+        wb.findElement(By.name("new")).click();
+    }
+
+    private void gotoGroupPage() {
+        wb.findElement(By.linkText("groups")).click();
     }
 
 }
