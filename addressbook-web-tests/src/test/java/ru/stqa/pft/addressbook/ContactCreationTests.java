@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ContactCreationTests {
   private WebDriver wb;
-  private StringBuffer verificationErrors = new StringBuffer();
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
@@ -20,7 +19,7 @@ public class ContactCreationTests {
   }
 
   @Test
-  public void testUntitledTestCase() throws Exception {
+  public void testContactCreation() throws Exception {
     initContactCreation();
     fillContactForm(new ContactData("Anton", "Vasil", "Makarov", "Pups", "Groovy", "Kazahstan, Gandolyerov 98", "+79881112233", "makarov@gmail.com", "1", "January", "2014"));
     submitContactCreation();
@@ -31,10 +30,6 @@ public class ContactCreationTests {
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wb.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
   }
 
   private void logout() {
