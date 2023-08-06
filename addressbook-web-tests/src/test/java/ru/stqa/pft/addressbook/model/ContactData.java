@@ -13,7 +13,8 @@ public class ContactData {
     private final String bmonth;
     private final String byear;
 
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String company, String address, String mobile, String email, String bday, String bmonth, String byear) {
+    public ContactData(String firstname, String middlename, String lastname, String nickname, String company,
+                       String address, String mobile, String email, String bday, String bmonth, String byear) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
