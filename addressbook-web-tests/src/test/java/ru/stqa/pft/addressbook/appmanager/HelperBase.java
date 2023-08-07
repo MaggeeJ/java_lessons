@@ -5,6 +5,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Objects;
+
 public class HelperBase {
     public WebDriver wd;
 
@@ -18,8 +20,13 @@ public class HelperBase {
 
     public void type(String locator, String text) {
         click(By.name(locator));
-        wd.findElement(By.name(locator)).clear();
-        wd.findElement(By.name(locator)).sendKeys(text);
+        if (text != null) {
+            String existingText = wd.findElement(By.name(locator)).getAttribute("value");
+            if (! Objects.equals(text, existingText)) {
+                wd.findElement(By.name(locator)).clear();
+                wd.findElement(By.name(locator)).sendKeys(text);
+            }
+        }
     }
 
     public void typeList(String locator, String text) {
