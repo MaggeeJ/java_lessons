@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase{
@@ -26,6 +27,9 @@ public class ContactHelper extends HelperBase{
         typeList("bday", contactdata.getBday());
         typeList("bmonth", contactdata.getBmonth());
         type("byear", contactdata.getByear());
+        if (isElementPresent(By.name("new_group"))) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
+        }
     }
 
     public void initContactCreation() {
