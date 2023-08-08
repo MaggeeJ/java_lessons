@@ -17,6 +17,18 @@ public class ContactHelper extends HelperBase{
     }
 
     public void fillContactForm(ContactData contactdata, boolean creation) {
+        if (creation) {
+            if (! isTextPresent(By.name("new_group"), contactdata.getGroup())) {
+                click(By.linkText("groups"));
+                click(By.name("new"));
+                type("group_name", contactdata.getGroup());
+                click(By.name("submit"));
+                click(By.linkText("add new"));
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
+            }
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
         type("firstname", contactdata.getFirstname());
         type("middlename", contactdata.getMiddlename());
         type("lastname", contactdata.getLastname());
@@ -29,11 +41,8 @@ public class ContactHelper extends HelperBase{
         typeList("bmonth", contactdata.getBmonth());
         type("byear", contactdata.getByear());
 
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
+
+
     }
 
     public void initContactCreation() {
@@ -75,4 +84,5 @@ public class ContactHelper extends HelperBase{
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
+
 }

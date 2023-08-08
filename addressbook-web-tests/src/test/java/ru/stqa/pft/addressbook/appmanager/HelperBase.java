@@ -53,4 +53,13 @@ public class HelperBase {
             return false;
         }
     }
+
+    public boolean isTextPresent(By locator, String text) {
+        try {
+            new Select(wd.findElement(locator)).selectByVisibleText(text);
+            return true;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
 }
