@@ -74,7 +74,7 @@ public class ContactHelper extends HelperBase{
     }
 
     public void returnToHomePage() {
-        click(By.linkText("home page"));
+        click(By.cssSelector("#nav > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1)"));
     }
 
     public void create(ContactData contact) {
@@ -97,6 +97,7 @@ public class ContactHelper extends HelperBase{
         selectContact(index);
         deleteSelectedContacts();
         closeAlert();
+        returnToHomePage();
     }
 
     public boolean isThereAContact() {
@@ -115,9 +116,7 @@ public class ContactHelper extends HelperBase{
             int id = Integer.parseInt(String.valueOf(Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"))));
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
-            ContactData contact = new ContactData(id, firstName, null, lastName, null, null,
-                    null, null, null, null, null, null, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstname(firstName).withLastname(lastName));
         }
         return contacts;
     }
