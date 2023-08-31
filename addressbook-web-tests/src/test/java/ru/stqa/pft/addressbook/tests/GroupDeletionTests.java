@@ -8,12 +8,16 @@ import java.util.List;
 
 public class GroupDeletionTests extends TestBase{
 
-  @Test
-  public void testGroupDeletion() throws Exception {
+  @BeforeMethod
+  public void ensurePreconditions() {
     app.getNavigationHelper().gotoGroupPage();
     if (! app.getGroupsHelper().isThereAGroup()) {
       app.getGroupsHelper().createGroup (new GroupData("test1", "test2", "test3"));
     }
+  }
+
+  @Test
+  public void testGroupDeletion() throws Exception {
     List<GroupData> before = app.getGroupsHelper().getGroupList();
     app.getGroupsHelper().selectGroup(before.size() - 1);
     app.getGroupsHelper().deleteSelectedGroups();
