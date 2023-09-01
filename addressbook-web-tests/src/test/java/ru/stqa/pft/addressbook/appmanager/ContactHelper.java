@@ -67,6 +67,12 @@ public class ContactHelper extends HelperBase{
 
     public void initContactModification(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+//        wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
+//        Я хочу найти строку, внутри которой есть чекбокс с заданным идентификатором:
+//        //tr - поискать строку [условие]
+//        .//input[@value='%s'] - в которой находится input с заданным атрибутом value
+//        td[8] - ищем в строке восьмую ячейку
+//        a - в ячейке находим ссылку
     }
 
     public void submitContactModification() {
@@ -129,4 +135,16 @@ public class ContactHelper extends HelperBase{
         return new Contacts(contactCache);
     }
 
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModification(contact.getId());
+        String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
+        String home = wd.findElement(By.name("home")).getAttribute("value");
+        String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+        String work = wd.findElement(By.name("work")).getAttribute("value");
+        wd.navigate().back();
+        return new ContactData().withId(contact.getId()).withFirstname(firstName).withLastname(lastName)
+                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+
+    }
 }
