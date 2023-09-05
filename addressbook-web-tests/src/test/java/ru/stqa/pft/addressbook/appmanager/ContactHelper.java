@@ -44,9 +44,7 @@ public class ContactHelper extends HelperBase{
         typeList("bday", contactdata.getBday());
         typeList("bmonth", contactdata.getBmonth());
         type("byear", contactdata.getByear());
-
-
-
+        attach(By.name("photo"), contactdata.getPhoto());
     }
 
     public void initContactCreation() {
