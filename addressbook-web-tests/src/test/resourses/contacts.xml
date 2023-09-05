@@ -12,9 +12,6 @@
     <email>Email 0</email>
     <email2>Email2 0</email2>
     <email3>Email3 0</email3>
-    <bday>1</bday>
-    <bmonth>1</bmonth>
-    <byear>2000</byear>
     <group>Group 0</group>
   </contact>
   <contact>
@@ -30,9 +27,6 @@
     <email>Email 1</email>
     <email2>Email2 1</email2>
     <email3>Email3 1</email3>
-    <bday>2</bday>
-    <bmonth>2</bmonth>
-    <byear>2001</byear>
     <group>Group 1</group>
   </contact>
   <contact>
@@ -48,9 +42,6 @@
     <email>Email 2</email>
     <email2>Email2 2</email2>
     <email3>Email3 2</email3>
-    <bday>3</bday>
-    <bmonth>3</bmonth>
-    <byear>2002</byear>
     <group>Group 2</group>
   </contact>
 </list>

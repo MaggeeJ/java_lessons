@@ -12,9 +12,6 @@
     "email": "Email 0",
     "email2": "Email2 0",
     "email3": "Email3 0",
-    "bday": "Bday 0",
-    "bmonth": "Bmonth 0",
-    "byear": "Byear 0",
     "group": "Group 0"
   },
   {
@@ -30,9 +27,6 @@
     "email": "Email 1",
     "email2": "Email2 1",
     "email3": "Email3 1",
-    "bday": "Bday 1",
-    "bmonth": "Bmonth 1",
-    "byear": "Byear 1",
     "group": "Group 1"
   },
   {
@@ -48,9 +42,6 @@
     "email": "Email 2",
     "email2": "Email2 2",
     "email3": "Email3 2",
-    "bday": "Bday 2",
-    "bmonth": "Bmonth 2",
-    "byear": "Byear 2",
     "group": "Group 2"
   }
 ]

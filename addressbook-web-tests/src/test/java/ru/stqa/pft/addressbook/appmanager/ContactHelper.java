@@ -34,17 +34,11 @@ public class ContactHelper extends HelperBase{
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
         type("firstname", contactdata.getFirstname());
-        type("middlename", contactdata.getMiddlename());
         type("lastname", contactdata.getLastname());
-        type("nickname", contactdata.getNickname());
-        type("company", contactdata.getCompany());
         type("address", contactdata.getAddress());
         type("mobile", contactdata.getMobilePhone());
         type("email", contactdata.getEmail());
-        typeList("bday", contactdata.getBday());
-        typeList("bmonth", contactdata.getBmonth());
-        type("byear", contactdata.getByear());
-        attach(By.name("photo"), contactdata.getPhoto());
+//        attach(By.name("photo"), contactdata.getPhoto());
     }
 
     public void initContactCreation() {
