@@ -1,0 +1,56 @@
+<list>
+  <contact>
+    <firstname>Firstname 0</firstname>
+    <middlename>Middlename 0</middlename>
+    <lastname>Lastname 0</lastname>
+    <nickname>Nickname 0</nickname>
+    <company>Company 0</company>
+    <address>Address 0</address>
+    <home>HomePhone 0</home>
+    <mobile>MobilePhone 0</mobile>
+    <work>WorkPhone 0</work>
+    <email>Email 0</email>
+    <email2>Email2 0</email2>
+    <email3>Email3 0</email3>
+    <bday>1</bday>
+    <bmonth>1</bmonth>
+    <byear>2000</byear>
+    <group>Group 0</group>
+  </contact>
+  <contact>
+    <firstname>Firstname 1</firstname>
+    <middlename>Middlename 1</middlename>
+    <lastname>Lastname 1</lastname>
+    <nickname>Nickname 1</nickname>
+    <company>Company 1</company>
+    <address>Address 1</address>
+    <home>HomePhone 1</home>
+    <mobile>MobilePhone 1</mobile>
+    <work>WorkPhone 1</work>
+    <email>Email 1</email>
+    <email2>Email2 1</email2>
+    <email3>Email3 1</email3>
+    <bday>2</bday>
+    <bmonth>2</bmonth>
+    <byear>2001</byear>
+    <group>Group 1</group>
+  </contact>
+  <contact>
+    <firstname>Firstname 2</firstname>
+    <middlename>Middlename 2</middlename>
+    <lastname>Lastname 2</lastname>
+    <nickname>Nickname 2</nickname>
+    <company>Company 2</company>
+    <address>Address 2</address>
+    <home>HomePhone 2</home>
+    <mobile>MobilePhone 2</mobile>
+    <work>WorkPhone 2</work>
+    <email>Email 2</email>
+    <email2>Email2 2</email2>
+    <email3>Email3 2</email3>
+    <bday>3</bday>
+    <bmonth>3</bmonth>
+    <byear>2002</byear>
+    <group>Group 2</group>
+  </contact>
+</list>
