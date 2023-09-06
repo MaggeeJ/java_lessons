@@ -1,0 +1,6 @@
+3557 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Start test testGroupCreation With parameters [GroupData{id='2147483647', name='test 0'}]
+6289 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Stop test testGroupCreation With parameters [GroupData{id='119', name='test 0'}]
+6289 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Start test testGroupCreation With parameters [GroupData{id='2147483647', name='test 1'}]
+7828 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Stop test testGroupCreation With parameters [GroupData{id='120', name='test 1'}]
+7829 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Start test testGroupCreation With parameters [GroupData{id='2147483647', name='test 2'}]
+9358 [main] INFO  r.s.pft.addressbook.tests.TestBase -%PARSER_ERROR[kvp]- Stop test testGroupCreation With parameters [GroupData{id='121', name='test 2'}]
