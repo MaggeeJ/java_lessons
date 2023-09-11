@@ -38,14 +38,14 @@ public class ContactPhoneTests extends TestBase{
 
     private String mergePhones(ContactData contact) {
         return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
-                .stream().filter((s) -> !s.isEmpty())
+                .stream().filter(s -> s != null && !s.isEmpty())
                 .map(ContactPhoneTests::cleaned)
                 .collect(Collectors.joining("\n"));
     }
 
     private String mergeEmails(ContactData emails) {
         return Arrays.asList(emails.getEmail(), emails.getEmail2(), emails.getEmail3())
-                .stream().filter((s) -> !s.isEmpty())
+                .stream().filter(s -> s != null && !s.isEmpty())
                 .collect(Collectors.joining("\n"));
     }
 

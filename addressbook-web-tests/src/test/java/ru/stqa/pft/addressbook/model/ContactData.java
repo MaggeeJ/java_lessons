@@ -2,52 +2,67 @@ package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
+
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
+
 public class ContactData {
-    @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
     @Expose
+    @Column(name = "firstname")
     private String firstname;
-    @Expose
+    @Transient
     private String middlename;
     @Expose
+    @Column(name = "lastname")
     private String lastname;
-    @Expose
+    @Transient
     private String nickname;
-    @Expose
+    @Transient
     private String company;
-    @Expose
+    @Transient
     private String address;
     @Expose
+    @Type(type = "text")
+    @Column(name = "home")
     private String home;
     @Expose
+    @Type(type = "text")
+    @Column(name = "mobile")
     private String mobile;
     @Expose
+    @Type(type = "text")
+    @Column(name = "work")
     private String work;
-    @Expose
+    @Transient
     private String email;
-    @Expose
+    @Transient
     private String email2;
-    @Expose
+    @Transient
     private String email3;
-    @Expose
+    @Transient
     private String bday;
-    @Expose
+    @Transient
     private String bmonth;
-    @Expose
+    @Transient
     private String byear;
-    @Expose
+    @Transient
     private String group;
-    @XStreamOmitField
+    @Transient
     private String allPhones;
-    @XStreamOmitField
+    @Transient
     private String allEmails;
-    @XStreamOmitField
-    private File photo;
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
 
@@ -147,7 +162,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -228,7 +243,11 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return photo;
+        if (photo != null) {
+            return new File(photo);
+        } else {
+            return null;
+        }
     }
 
     @Override
