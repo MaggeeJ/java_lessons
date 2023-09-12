@@ -29,19 +29,4 @@
     <email3>Email3 1</email3>
     <group>Group 1</group>
   </contact>
-  <contact>
-    <firstname>Firstname 2</firstname>
-    <middlename>Middlename 2</middlename>
-    <lastname>Lastname 2</lastname>
-    <nickname>Nickname 2</nickname>
-    <company>Company 2</company>
-    <address>Address 2</address>
-    <home>HomePhone 2</home>
-    <mobile>MobilePhone 2</mobile>
-    <work>WorkPhone 2</work>
-    <email>Email 2</email>
-    <email2>Email2 2</email2>
-    <email3>Email3 2</email3>
-    <group>Group 2</group>
-  </contact>
 </list>

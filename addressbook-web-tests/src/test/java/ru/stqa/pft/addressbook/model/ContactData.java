@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -13,13 +14,15 @@ import java.util.Objects;
 @Table(name = "addressbook")
 
 public class ContactData {
+    @XStreamOmitField
     @Id
     @Column(name = "id")
     private int id = Integer.MAX_VALUE;
     @Expose
     @Column(name = "firstname")
     private String firstname;
-    @Transient
+    @Expose
+    @Column(name = "middlename")
     private String middlename;
     @Expose
     @Column(name = "lastname")
@@ -60,6 +63,7 @@ public class ContactData {
     private String allPhones;
     @Transient
     private String allEmails;
+    @Transient
     @Column(name = "photo")
     @Type(type = "text")
     private String photo;
@@ -264,11 +268,12 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname);
+        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(middlename, that.middlename) && Objects.equals(lastname, that.lastname) && Objects.equals(home, that.home) && Objects.equals(mobile, that.mobile) && Objects.equals(work, that.work);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
+        return Objects.hash(id, firstname, middlename, lastname, home, mobile, work);
     }
+
 }
