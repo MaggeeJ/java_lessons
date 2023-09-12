@@ -14,19 +14,4 @@
     <email3>Email3 0</email3>
     <group>Group 0</group>
   </contact>
-  <contact>
-    <firstname>Firstname 1</firstname>
-    <middlename>Middlename 1</middlename>
-    <lastname>Lastname 1</lastname>
-    <nickname>Nickname 1</nickname>
-    <company>Company 1</company>
-    <address>Address 1</address>
-    <home>HomePhone 1</home>
-    <mobile>MobilePhone 1</mobile>
-    <work>WorkPhone 1</work>
-    <email>Email 1</email>
-    <email2>Email2 1</email2>
-    <email3>Email3 1</email3>
-    <group>Group 1</group>
-  </contact>
 </list>

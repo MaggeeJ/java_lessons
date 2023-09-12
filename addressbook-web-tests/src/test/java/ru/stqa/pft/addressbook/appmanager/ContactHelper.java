@@ -34,6 +34,7 @@ public class ContactHelper extends HelperBase{
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
         type("firstname", contactdata.getFirstname());
+        type("middlename", contactdata.getMiddlename());
         type("lastname", contactdata.getLastname());
         type("address", contactdata.getAddress());
         type("mobile", contactdata.getMobilePhone());

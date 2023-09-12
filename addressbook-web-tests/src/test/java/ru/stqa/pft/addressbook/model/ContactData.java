@@ -31,9 +31,11 @@ public class ContactData {
     private String nickname;
     @Transient
     private String company;
-    @Transient
-    private String address;
     @Expose
+    @Type(type = "text")
+    @Column(name = "address")
+    private String address;
+    @Transient
     @Type(type = "text")
     @Column(name = "home")
     private String home;
@@ -41,11 +43,13 @@ public class ContactData {
     @Type(type = "text")
     @Column(name = "mobile")
     private String mobile;
-    @Expose
+    @Transient
     @Type(type = "text")
     @Column(name = "work")
     private String work;
-    @Transient
+    @Expose
+    @Type(type = "text")
+    @Column(name = "email")
     private String email;
     @Transient
     private String email2;
@@ -254,12 +258,17 @@ public class ContactData {
         }
     }
 
+
     @Override
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
+                ", middlename='" + middlename + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -268,12 +277,12 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(middlename, that.middlename) && Objects.equals(lastname, that.lastname) && Objects.equals(home, that.home) && Objects.equals(mobile, that.mobile) && Objects.equals(work, that.work);
+        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(middlename, that.middlename) && Objects.equals(lastname, that.lastname) && Objects.equals(address, that.address) && Objects.equals(mobile, that.mobile) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, middlename, lastname, home, mobile, work);
+        return Objects.hash(id, firstname, middlename, lastname, address, mobile, email);
     }
 
 }
