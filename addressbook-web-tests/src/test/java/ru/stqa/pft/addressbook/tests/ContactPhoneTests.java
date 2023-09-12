@@ -19,9 +19,9 @@ public class ContactPhoneTests extends TestBase{
             app.contact().create(new ContactData()
                     .withFirstname("Anton").withMiddlename("Vasil").withLastname("Makarov").withNickname("Pups")
                     .withCompany("Groovy").withAddress("Kazahstan, Gandolyerov 98")
-                    .withHomePhone("+3852 111 22").withMobilePhone("+7(988)111-22-33").withWorkPhone("2611122").withGroup("test1")
+                    .withHomePhone("+3852 111 22").withMobilePhone("+7(988)111-22-33").withWorkPhone("2611122")
                     .withEmail("makarov@gmail.com").withEmail2("morozov_12@mail.ru").withEmail3("Big-bada-bum@ya.ru")
-                    .withBday("1").withBmonth("January").withByear("2014").withGroup("test1"));
+                    .withBday("1").withBmonth("January").withByear("2014"));
         }
     }
 

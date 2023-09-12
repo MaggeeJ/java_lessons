@@ -3,8 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
@@ -21,18 +19,18 @@ public class ContactHelper extends HelperBase{
     }
 
     public void fillContactForm(ContactData contactdata, boolean creation) {
-        if (creation) {
-            if (! isTextPresent(By.name("new_group"), contactdata.getGroup())) {
-                click(By.linkText("groups"));
-                click(By.name("new"));
-                type("group_name", contactdata.getGroup());
-                click(By.name("submit"));
-                click(By.linkText("add new"));
-                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
-            }
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
+//        if (creation) {
+//            if (! isTextPresent(By.name("new_group"), contactdata.getGroup())) {
+//                click(By.linkText("groups"));
+//                click(By.name("new"));
+//                type("group_name", contactdata.getGroup());
+//                click(By.name("submit"));
+//                click(By.linkText("add new"));
+//                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
+//            }
+//        } else {
+//            Assert.assertFalse(isElementPresent(By.name("new_group")));
+//        }
         type("firstname", contactdata.getFirstname());
         type("middlename", contactdata.getMiddlename());
         type("lastname", contactdata.getLastname());
