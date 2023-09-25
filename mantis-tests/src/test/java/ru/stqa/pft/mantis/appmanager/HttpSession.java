@@ -30,11 +30,11 @@ public class HttpSession {
         params.add(new BasicNameValuePair("username", username));
         params.add(new BasicNameValuePair("password", password));
         params.add(new BasicNameValuePair("secure_session", "off"));
-        params.add(new BasicNameValuePair("return", "index.php"));
+        params.add(new BasicNameValuePair("return", "account_page.php"));
         post.setEntity(new UrlEncodedFormEntity(params));
         CloseableHttpResponse response = httpclient.execute(post);
         String body = geTextFrom(response);
-        return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+        return body.contains(String.format("<a href=\"/mantisbt-2.25.7/account_page.php\">%s</a>", username));
     }
 
     private String geTextFrom(CloseableHttpResponse response) throws IOException {
@@ -49,6 +49,6 @@ public class HttpSession {
         HttpGet get = new HttpGet(app.getProperty("web.baseURL") + "/index.php");
         CloseableHttpResponse response = httpclient.execute(get);
         String body = geTextFrom(response);
-        return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+        return body.contains(String.format("<a href=\"/mantisbt-2.25.7/account_page.php\">%s</a>", username));
     }
 }
