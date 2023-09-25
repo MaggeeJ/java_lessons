@@ -1,0 +1,34 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.testng:testng:6.9.10'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.11.0'
+    implementation 'org.seleniumhq.selenium:selenium-dependencies-bom:4.11.0'
+    implementation group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+    implementation 'org.jetbrains:annotations:24.0.0'
+    implementation 'com.beust:jcommander:1.48'
+    implementation 'com.thoughtworks.xstream:xstream:1.4.19'
+    implementation 'com.google.code.gson:gson:2.6.1'
+    implementation 'ch.qos.logback:logback-classic:1.1.5'
+    implementation 'mysql:mysql-connector-java:5.1.38'
+    implementation 'org.hibernate:hibernate-core:5.1.0.Final'
+}
+
+test {
+    useTestNG {
+        suites 'src/test/resourses/testng-grous.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty('verifyUI')) {
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
