@@ -70,4 +70,9 @@ public class HelperBase {
             return false;
         }
     }
+
+    protected void selectByText(By locator, String text) {
+        click(locator);
+        new Select(wd.findElement(locator)).selectByVisibleText(text);
+    }
 }

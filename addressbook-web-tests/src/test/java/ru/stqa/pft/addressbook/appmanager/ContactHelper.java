@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
@@ -19,18 +20,6 @@ public class ContactHelper extends HelperBase{
     }
 
     public void fillContactForm(ContactData contactdata, boolean creation) {
-//        if (creation) {
-//            if (! isTextPresent(By.name("new_group"), contactdata.getGroup())) {
-//                click(By.linkText("groups"));
-//                click(By.name("new"));
-//                type("group_name", contactdata.getGroup());
-//                click(By.name("submit"));
-//                click(By.linkText("add new"));
-//                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
-//            }
-//        } else {
-//            Assert.assertFalse(isElementPresent(By.name("new_group")));
-//        }
         type("firstname", contactdata.getFirstname());
         type("middlename", contactdata.getMiddlename());
         type("lastname", contactdata.getLastname());
@@ -38,6 +27,14 @@ public class ContactHelper extends HelperBase{
         type("mobile", contactdata.getMobilePhone());
         type("email", contactdata.getEmail());
 //        attach(By.name("photo"), contactdata.getPhoto());
+        if (creation) {
+            if (!contactdata.getGroups().isEmpty()) {
+                Assert.assertEquals(contactdata.getGroups().size(), 1);
+                selectByText(By.name("new_group"), contactdata.getGroups().iterator().next().getName());
+            }
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void initContactCreation() {
@@ -45,7 +42,32 @@ public class ContactHelper extends HelperBase{
     }
 
     public void selectContactById(int id) {
-        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+        click(By.cssSelector(String.format("input[value='%s']", id)));
+    }
+
+    private void selectGroupForAddById(int groupId) {
+        click(By.cssSelector(String.format("select[name='to_group'] > option[value='%s']", groupId)));
+    }
+
+    private void addSelectedContactToGroup() {
+        click(By.xpath("//input[@value='Add to']"));
+    }
+    public void addToGroup(int contactId, int groupId) {
+        selectContactById(contactId);
+        selectGroupForAddById(groupId);
+        addSelectedContactToGroup();
+        contactCache = null;
+    }
+    private void selectGroupPageById(int groupId) {
+        click(By.cssSelector(String.format("select[name='group'] > option[value='%s']", groupId)));
+    }
+    private void removeSelectedContactFromGroup() {
+        click(By.xpath("//input[@name='remove']"));
+    }
+    public void removeFromGroup(int contactId, int groupId) {
+        selectGroupPageById(groupId);
+        selectContactById(contactId);
+        removeSelectedContactFromGroup();
     }
 
     public void deleteSelectedContacts() {
@@ -58,6 +80,7 @@ public class ContactHelper extends HelperBase{
 
     public void initContactModification(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+        click(By.cssSelector(String.format("a[href='edit.php?id=%s']", id)));
 //        wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
 //        Я хочу найти строку, внутри которой есть чекбокс с заданным идентификатором:
 //        //tr - поискать строку [условие]
