@@ -25,4 +25,5 @@ wsdl2java {
     wsdlsToGenerate = [   //  2d-array of wsdls and cxf-parameters
                           ['src/main/resources/ipservice.wsdl']
     ]
+    cxfVersion = "2.7.0"
 }
