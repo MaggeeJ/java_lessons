@@ -22,6 +22,7 @@ public class ApplicationManager {
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private SoapHelper soapHelper;
+    private PasswordHelper passwordHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -74,6 +75,13 @@ public class ApplicationManager {
             soapHelper = new SoapHelper(this);
         }
         return soapHelper;
+    }
+
+    public PasswordHelper pass() {                                        //ленивая инициализация
+        if (passwordHelper == null) {
+            passwordHelper = new PasswordHelper(this);
+        }
+        return passwordHelper;
     }
 
     public WebDriver getDriver() {
