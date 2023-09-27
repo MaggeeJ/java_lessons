@@ -17,8 +17,7 @@ public class ApplicationManager {
     private final String browser;
     private final Properties properties;
     private WebDriver wd;
-    private RegistrationHelper registrationHelper
-            ;
+    private RegistrationHelper registrationHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private SoapHelper soapHelper;
@@ -77,7 +76,7 @@ public class ApplicationManager {
         return soapHelper;
     }
 
-    public PasswordHelper pass() {                                        //ленивая инициализация
+    public PasswordHelper pass() {
         if (passwordHelper == null) {
             passwordHelper = new PasswordHelper(this);
         }

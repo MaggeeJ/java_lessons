@@ -25,12 +25,10 @@ public class ResetUserPasswordTests extends TestBase {
         app.pass().loginAsAdmin();
         app.pass().goToUserPage();
         String user = app.pass().getUserName();
-        String email = String.format("user%s@localhost.localdomain", user);
+        String email = String.format("%s@localhost.localadmin", user);
         app.pass().resetPassword();
-
         List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
         String resetPasswordLink = findResetPasswordToLink(mailMessages, email);
-
         app.pass().changePassword(resetPasswordLink, password);
         assertTrue(app.newSession().login(user, password));
     }

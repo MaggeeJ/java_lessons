@@ -45,6 +45,6 @@ public class PasswordHelper extends HelperBase {
         wd.get(confirmationToLink);
         type(By.name("password"), password);
         type(By.name("password_confirm"), password);
-        click(By.cssSelector("input[value='Update User']"));
+        click(By.cssSelector("span.bigger-110"));
     }
 }
