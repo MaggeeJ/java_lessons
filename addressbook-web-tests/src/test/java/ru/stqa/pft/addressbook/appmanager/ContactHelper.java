@@ -80,7 +80,7 @@ public class ContactHelper extends HelperBase{
 
     public void initContactModification(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
-        click(By.cssSelector(String.format("a[href='edit.php?id=%s']", id)));
+//        click(By.cssSelector(String.format("a[href='edit.php?id=%s']", id)));
 //        wd.findElement(By.xpath(String.format("//tr[.//input[@value='%s']]/td[8]/a", id))).click();
 //        Я хочу найти строку, внутри которой есть чекбокс с заданным идентификатором:
 //        //tr - поискать строку [условие]

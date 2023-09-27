@@ -18,14 +18,14 @@ import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.openqa.selenium.remote.Browser.CHROME;
+import static org.openqa.selenium.remote.Browser.FIREFOX;
 
 public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     protected static final ApplicationManager app = new ApplicationManager(
-            System.getProperty("browser", CHROME.browserName()));
+            System.getProperty("browser", FIREFOX.browserName()));
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {

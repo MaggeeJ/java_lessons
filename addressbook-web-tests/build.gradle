@@ -16,6 +16,11 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.1.5'
     implementation 'mysql:mysql-connector-java:5.1.38'
     implementation 'org.hibernate:hibernate-core:5.1.0.Final'
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation "jakarta.xml.ws:jakarta.xml.ws-api:4.0.0"
+    implementation "com.sun.xml.ws:jaxws-rt:4.0.1"
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
 }
 
 tasks.register('testGroups', Test) {
