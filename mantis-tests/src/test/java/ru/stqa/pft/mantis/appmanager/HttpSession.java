@@ -34,7 +34,7 @@ public class HttpSession {
         post.setEntity(new UrlEncodedFormEntity(params));
         CloseableHttpResponse response = httpclient.execute(post);
         String body = geTextFrom(response);
-        return body.contains(String.format("<a href=\"/mantisbt-2.25.7/account_page.php\">%s</a>", username));
+        return body.contains(String.format("<a href=\"/%s/account_page.php\">%s</a>", app.getProperty("version"), username));
     }
 
     private String geTextFrom(CloseableHttpResponse response) throws IOException {
@@ -49,6 +49,6 @@ public class HttpSession {
         HttpGet get = new HttpGet(app.getProperty("web.baseURL") + "/index.php");
         CloseableHttpResponse response = httpclient.execute(get);
         String body = geTextFrom(response);
-        return body.contains(String.format("<a href=\"/mantisbt-2.25.7/account_page.php\">%s</a>", username));
+        return body.contains(String.format("<a href=\"/%s/account_page.php\">%s</a>", app.getProperty("version"), username));
     }
 }
